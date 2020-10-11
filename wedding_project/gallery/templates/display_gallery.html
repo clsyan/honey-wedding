@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8"> 
+	<title>Gallery</title> 
+	<style type="text/css">
+		.gallery {
+			-webkit-column-count: 3;
+			-moz-column-count: 3;
+			column-count: 3;
+			-webkit-column-width: 33%;
+			-moz-column-width: 33%;
+			column-width: 33%; }
+			.gallery .pics {
+				-webkit-transition: all 350ms ease;
+				transition: all 350ms ease; }
+			.gallery .animation {
+				-webkit-transform: scale(1);
+				-ms-transform: scale(1);
+				transform: scale(1); 
+				padding: 30px;
+}
+
+@media (max-width: 450px) {
+	.gallery {
+	-webkit-column-count: 1;
+	-moz-column-count: 1;
+	column-count: 1;
+	-webkit-column-width: 100%;
+	-moz-column-width: 100%;
+	column-width: 100%;
+	}
+}
+
+@media (max-width: 400px) {
+
+	.btn.filter {
+		padding-left: 1.1rem;
+		padding-right: 1.1rem;
+	}
+	main{
+		overflow: hidden;
+		max-width: 100vw;
+	}
+}
+h2{
+	text-align: center;
+	font-family: 'Sansita Swashed', cursive !important;
+}
+.warning-container{
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.warning-wrapper{
+	background-color: rgba(0,0,0,0.1);
+	padding: 10px;
+	width: 50%;
+}
+	</style>
+	<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet"> 
+
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+	</script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> 
+	</script> 
+</head> 
+<body> 
+	<header>
+		{% include "./header.html" %}
+	</header>
+	<main class="">
+		{% if isEmpty == False %}
+			<div class="warning-container">
+				<div class="warning-wrapper">
+					<h2>Looks like we don't have pictures yet :(. Take a step in and request some pics!</h2>
+				</div>
+			</div>
+		{% endif %}
+		<div class="gallery" id="gallery">
+			{% for picture in pictures %} 
+				{% if picture.is_approved%}
+				  <div class="">
+				    <img class="img-fluid" src="{{ picture.picture.url }}" alt="Card image cap">
+				  </div>
+				{% endif %}
+			{% endfor %}
+
+		</div>
+			
+	</main>
+
+</body> 
+</html>

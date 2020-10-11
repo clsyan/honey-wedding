@@ -1,0 +1,21 @@
+ul{
+	list-style: none;
+	height: 100%;
+	position: relative;
+	font-size: 14px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	justify-content: flex-end;
+}
+ul li a:link{
+	text-decoration: none;
+	color: #777777;
+}
+header{
+	height: 90px;
+}
+nav{
+	height: 100%;
+	text-indent: end;
+	padding: 0;
+}

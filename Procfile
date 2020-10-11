@@ -1,0 +1,1 @@
+web: gunicorn wedding_projects.wedding_projects.wsgi --log-file -

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Upload pic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> 
+	</script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> 
+	</script>
+	<style type="text/css">
+		form{
+			padding: 50px;
+			border-radius: 20px;
+			background-color: lightgrey;
+		}
+		main{
+			opacity: 90%
+		}
+		h2{
+			font-family: 'Sansita Swashed', cursive !important;
+		}
+		body{
+			background-image: url('{% static 'bg_upload_screen.jpg' %}');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		
+	</style>
+</head> 
+<body>
+	{% include './header.html' %}
+	<main class="d-flex flex-column align-items-center justify-content-center">
+	    <h2 class="mb-5">Upload your picture so we can put it on our gallery!</h2>
+	    <form class="h-100 d-flex flex-column align-items-center" method = "post" enctype="multipart/form-data"> 
+	        {% csrf_token %} 
+	        {{ form.as_p }} 
+	        <button class="btn btn-danger" type="submit">Upload</button> 
+	    </form> 
+	</main>
+
+</body> 
+</html> 
